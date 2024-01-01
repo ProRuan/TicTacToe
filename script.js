@@ -153,4 +153,15 @@ function drawWinningLine(combination) {
     document.getElementById('content').appendChild(line);
 }
 
-// unbekannten Code von ChatGPT erklaeren lassen oder recherchieren!!!
+// unbekannten Code von ChatGPT erklaeren lassen, debuggern oder recherchieren!!!
+
+
+function restartGame() {
+    for (let i = 0; i < fields.length; i++) {
+        fields[i] = null;
+    }
+    render();
+}
+
+
+// Improve the game! (0.5 - 1.0 day)
