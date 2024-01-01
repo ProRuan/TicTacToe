@@ -1,7 +1,9 @@
+let currentPlayer = 'circle';
+
 let fields = [
     null,
-    'circle',
-    'cross',
+    null,
+    null,
     null,
     null,
     null,
@@ -30,7 +32,7 @@ function render() {
             } else if (fields[fieldId] === 'cross') {
                 symbol = generateCross();
             }
-            table += `<td>${symbol}</td>`;
+            table += `<td onclick="addSymbol(this, ${fieldId})">${symbol}</td>`;
         }
         table += '</tr>';
     }
@@ -83,3 +85,16 @@ function generateCross() {
 
     return code;
 }
+
+
+function addSymbol(cell, fieldId) {
+    if (fields[fieldId] === null) {
+        fields[fieldId] = currentPlayer;
+        cell.innerHTML = currentPlayer === 'circle' ? generateCircle() : generateCross();
+        cell.onclick = null;
+        currentPlayer = currentPlayer === 'circle' ? 'cross' : 'circle';
+    }
+}
+
+
+// unbekannten Code von ChatGPT erklaeren lassen oder recherchieren!!!
